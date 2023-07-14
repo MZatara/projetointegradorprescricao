@@ -1,4 +1,4 @@
-# projetointegradorprescricao
+# Projeto Integrador Treinamentos Prescritos
 
 Projeto Integrador Treinamentos Prescritos 
 Status do projeto (em desenvolvimento)
