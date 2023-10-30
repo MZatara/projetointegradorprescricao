@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programa de Prescrição</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(50, 50, 61);">
         <div class="container">
@@ -14,7 +16,14 @@
             </div>
         </div>
     </nav>
-    
+
+    <div class="form-group">
+        <label for="nomePesquisa">Pesquisar por Nome:</label>
+        <input type="text" class="form-control" id="nomePesquisa">
+    </div>
+    <button class="btn btn-primary" onclick="filtrarAlunos()">Pesquisar</button>
+
+
     <h1 style="margin-top: 0%; text-align: center; color: rgb(16, 104, 187);">Exercícios Prescritos</h1>
     <table class="table">
         <thead>
@@ -23,28 +32,30 @@
                 <th>Cuidados do Aluno</th>
                 <th>Exercício</th>
                 <th>Séries</th>
-                <th>Repetições</th>               
+                <th>Repetições</th>
             </tr>
         </thead>
         <tbody id="tabela-alunos"></tbody>
     </table>
     <a href="index.html" class="btn btn-secondary btn-lg"
-                        style="background-color: darkgreen; width: 200px; border-radius: 25px">Retornar</a>
-                        <footer class="bg-dark text-light text-center py-3 fixed-bottom w-100">
-                            <div class="container">
-                                <p>&copy; 2023. Todos os direitos reservados.</p>
-                            </div>
-                        </footer>
+        style="background-color: darkgreen; width: 200px; border-radius: 25px">Retornar</a>
+    <footer class="bg-dark text-light text-center py-3 fixed-bottom w-100">
+        <div class="container">
+            <p>&copy; 2023. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-                        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-pzjw8f+ua1fE3gvYpjewTOz5f5b6gjso2OQFrWV3fDk5UIUeCwva6nGkMbFIDZfa" crossorigin="anonymous"></script>
-                        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                        
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-pzjw8f+ua1fE3gvYpjewTOz5f5b6gjso2OQFrWV3fDk5UIUeCwva6nGkMbFIDZfa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script>
         function carregarAlunos() {
             axios.get('http://localhost:3000/alunos')
                 .then(function (response) {
                     const tabelaAlunos = document.getElementById('tabela-alunos');
-                    tabelaAlunos.innerHTML = ''; 
+                    tabelaAlunos.innerHTML = '';
 
                     response.data.forEach(function (alunos) {
                         const newRow = tabelaAlunos.insertRow();
@@ -63,7 +74,37 @@
         }
         window.addEventListener('load', carregarAlunos);
     </script>
-    
+    <script>
+
+        function filtrarAlunos() {
+            const nomePesquisa = document.getElementById('nomePesquisa').value.toLowerCase();
+            axios.get('http://localhost:3000/alunos')
+                .then(function (response) {
+                    const tabelaAlunos = document.getElementById('tabela-alunos');
+                    tabelaAlunos.innerHTML = '';
+
+                    response.data.forEach(function (aluno) {
+                        const nomeAluno = aluno.nomeAluno.toLowerCase();
+                        if (nomeAluno.includes(nomePesquisa)) {
+                            const newRow = tabelaAlunos.insertRow();
+                            newRow.innerHTML = `
+                            <td>${aluno.nomeAluno}</td>
+                            <td>${aluno.exercicio}</td>
+                            <td>${aluno.cuidadosAluno}</td>
+                            <td>${aluno.series}</td>
+                            <td>${aluno.repeticoes}</td>                           
+                        `;
+                        }
+                    });
+                })
+                .catch(function (error) {
+                    console.error('Erro ao carregar dados:', error);
+                });
+        }
+    </script>
+
+
+
 </body>
 
 
