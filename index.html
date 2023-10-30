@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Prescrição</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(50, 50, 61);">
+        <div class="container">
+            <div class="navbar-brand mx-auto">
+                <img src="980x389.png" width="1180" height="389" alt="">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-6">
+                <form id="logar" onsubmit="return verificarLogin('logar')">
+                    <h1 class="mb-2 text-left text-primary">Login</h1>
+                    <br>                
+                    <p>
+                        <label for="usuario">Usuário:</label>
+                        <input type="text" id="usuario">
+
+                    </p>
+                    <p>
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha">
+
+
+                    </p>
+                    <input type="submit" value="Acessar" class="btn btn-secondary btn-lg"
+                        style="background-color: darkgreen; width: 200px; border-radius: 25px">
+                </form>
+            </div>
+            <div class="col-sm-3">
+                <img src="alonga.png" alt="Beneficios"  class="img-fluid w-100 h-100">
+                <h6 class="text-center">Benefícios da Atividade Física Regular</h6>
+            </div>
+            <div class="col-sm-3">
+                <img src="musc.jpg" alt="Musculação"  class="img-fluid w-100 h-100">
+               <h6 class="text-center">Treine conosco!</h6>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3 fixed-bottom w-100">
+        <div class="container">
+            <p>&copy; 2023. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

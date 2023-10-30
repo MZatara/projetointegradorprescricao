@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Prescrição</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(50, 50, 61);">
+        <div class="container">
+            <div class="navbar-brand mx-auto">
+                <img src="980x389.png" width="1180" height="389" alt="">
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-6">
+                <h1 class="mb-2 text-left text-primary">Prescrição de Exercícios</h1>
+                <form action="http://localhost:3000/alunos" method="POST" class="text-left" name="formulario" onsubmit="return validarFormulario()">
+                    <label for="nomeAluno">Nome do Aluno:</label>
+                    <input type="text" name="nomeAluno" required><br><br>
+            
+                    <label for="exercicio">Exercício:</label>
+                    <input type="text" name="exercicio" required><br><br>
+            
+                    <label for="cuidadosAluno">Cuidados Aluno:</label>
+                    <input type="text" name="cuidadosAluno" required><br><br>
+            
+                    <label for="series">Séries:</label>
+                    <input type="text" name="series" required><br><br>
+            
+                    <label for="repeticoes">Repetições:</label>
+                    <input type="text" name="repeticoes" required><br><br>
+            
+                    <input type="submit" class="btn btn-secondary btn-lg"
+                    style="background-color: darkgreen; width: 200px; border-radius: 25px" value="Enviar">
+                </form>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-center">
+                <img src="agac.jpg" width="1000" height="500" alt="">
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3 fixed-bottom w-100">
+        <div class="container">
+            <p>&copy; 2023. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js>"></script>
+</body>
+</html>
