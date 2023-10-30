@@ -7,6 +7,14 @@
       "series": "3",
       "repeticoes": "10",
       "id": 1
+    },
+    {
+      "nomeAluno": "Gisiane",
+      "exercicio": "Snatch",
+      "cuidadosAluno": "Saudável",
+      "series": "4",
+      "repeticoes": "30",
+      "id": 2
     }
   ]
 }
