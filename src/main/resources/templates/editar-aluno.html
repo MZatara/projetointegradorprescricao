@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Editar Aluno</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+            <link th:href="@{'/css/' + ${css} + '.css'}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:insert="~{navbar.html :: nav}"></header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(50, 50, 61);">
+            <div class="container">
+                <div class="navbar-brand mx-auto">
+                    <img th:src="@{/img/980x389.png}" width="1180" height="389" alt="">
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <h1 class="mb-2 text-left text-primary">Editar Aluno</h1>
+                    <form th:action="@{'/editar-aluno/' + ${aluno.id}}" method="post">
+                        <div>
+                            <p>Nome: <input type="text" th:field="*{aluno.nome}" /></p>
+                            <p>CPF: <input type="text" th:field="*{aluno.cpf}" /></p>
+                            <p>Email: <input type="text" th:field="*{aluno.email}" /></p>
+                            <p>Endereço: <input type="text" th:field="*{aluno.endereco}" /></p>
+                            <p>Telefone: <input type="text" th:field="*{aluno.telefone}" /></p>
+                        </div>
+                        <button type="submit">Salvar</button>
+                    </form>
+                </div>
+
+                <div class="col-sm-6 d-flex justify-content-center">
+                    <img th:src="@{/img/agac.jpg}" width="1000" height="500" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 100px;"></div>
+
+
+        <footer class="bg-dark text-light text-left py-0 fixed-bottom w-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p class="small">&copy; 2023. Todos os direitos reservados.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="small">Informe suas preferências para o site</p>
+                    </div>
+                    <div class="col-md-3">
+                        <form th:action="@{/preferencias}" method="POST">
+                            <div class="form-group">
+                                <label class="small" for="selEstilo">Seu esquema de cores favorito</label>
+                            </div>
+                    </div><!-- comment -->
+                    <div class="col-md-3">
+                        <select class="form-control" name="estilo" id="selEstilo">
+                            <option value="claro">Tema Claro</option>
+                            <option value="escuro">Tema Escuro</option>
+                        </select>                            
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="OK" />
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    </body>
+</html>

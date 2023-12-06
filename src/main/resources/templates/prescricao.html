@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Castramento de Alunos</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link th:href="@{'/css/' + ${css} + '.css'}" rel="stylesheet" type="text/css"/>
+
+    </head>
+
+    <body>
+        <header th:insert="~{navbar.html :: nav}"></header>    
+
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(50, 50, 61);">
+            <div class="container">
+                <div class="navbar-brand mx-auto">
+                    <img th:src="@{/img/980x389.png}" width="1180" height="389" alt="">
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <h1 class="mb-2 text-left text-primary">Cadastramento de Alunos</h1>
+
+                    <form th:action="@{/cadastrar}" method="post" class="text-left" name="formulario" th:object="${alunoEntity}">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" th:field="*{cpf}" required><br><br>
+                                        <span class="text-danger" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span> 
+                        <label for="nome">Nome:</label>
+                        <input type="text" th:field="*{nome}"required><br><br>                        
+                                        <span class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span> 
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" th:field="*{telefone}" required><br><br>
+                        <label for="email">E-mail:</label>
+                        <input type="text" th:field="*{email}"required><br><br>
+                                        <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span> 
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" th:field="*{endereco}" required><br><br>            
+
+                        <input type="submit" class="btn btn-secondary btn-lg"
+                               style="background-color: darkgreen; width: 200px; border-radius: 25px" value="Cadastrar">
+                    </form>
+                </div>
+
+                <div class="col-sm-6 d-flex justify-content-center">
+                    <img th:src="@{/img/agac.jpg}" width="1000" height="500" alt="">
+                </div>
+            </div>
+        </div>
+        
+                          <div style="margin-bottom: 100px;"></div>
+
+
+        <footer class="bg-dark text-light text-left py-0 fixed-bottom w-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p class="small">&copy; 2023. Todos os direitos reservados.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="small">Informe suas preferências para o site</p>
+                    </div>
+                    <div class="col-md-3">
+                        <form th:action="@{/preferencias}" method="POST">
+                            <div class="form-group">
+                                <label class="small" for="selEstilo">Seu esquema de cores favorito</label>
+                            </div>
+                    </div><!-- comment -->
+                            <div class="col-md-3">
+                                <select class="form-control" name="estilo" id="selEstilo">
+                                    <option value="claro">Tema Claro</option>
+                                    <option value="escuro">Tema Escuro</option>
+                                </select>                            
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="OK" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="/script/script.js"></script>       
+
+    </body>
+
+</html>
